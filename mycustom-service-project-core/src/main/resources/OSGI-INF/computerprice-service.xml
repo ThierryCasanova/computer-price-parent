@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<component name="tcas.onboarding.ComputerPrice" version="1.0">
+
+  <implementation class="tcas.onboarding.ComputerPriceImpl" />
+
+  <service>
+    <provide interface="tcas.onboarding.ComputerPrice" />
+  </service>
+  
+  <extension-point name="pricepolicies">
+  	<object class = "tcas.onboarding.PricePolicyDescriptor"/>
+  </extension-point>
+  
+    <extension
+    target="tcas.onboarding.ComputerPrice"
+    point="pricepolicies">
+    <documentation>
+       extension to define price policy update.
+    </documentation>
+    
+  </extension>
+</component>

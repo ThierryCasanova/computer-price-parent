@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<component
+  name="tcas.onboarding.computerpriceservice.pricepolicy-contrib">
+  <documentation>Component to define price policy update.</documentation>
+	<require>tcas.onboarding.ComputerPrice</require>
+  <extension
+    target="tcas.onboarding.ComputerPrice"
+    point="pricepolicies">
+    <documentation>
+       extension to define price policy update.
+    </documentation>
+   <policyByCountry>
+     <distributors>
+   		<distributor id="France">5</distributor>
+    	<distributor id="US">3</distributor>
+    	<distributor id="EN">2</distributor>
+     </distributors>
+   </policyByCountry> 
+ 
+    
+  </extension>
+</component>
