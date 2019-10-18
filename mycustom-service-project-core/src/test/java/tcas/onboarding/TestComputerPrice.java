@@ -36,7 +36,7 @@ import com.nuxeo.studio.StudioConstant;
 //@PartialDeploy(bundle = StudioConstant.BUNDLE_NAME, extensions = {TargetExtensions.Automation.class})
 @PartialDeploy(bundle = StudioConstant.BUNDLE_NAME, extensions = {TargetExtensions.ContentModel.class})
 //@Deploy(StudioConstant.BUNDLE_NAME)
-//@RepositoryConfig(init = DefaultRepositoryInit.class)
+//@RepositoryConfig(init = DefaultRepositoryInit.class) 
 public class TestComputerPrice {
 
     @Inject
