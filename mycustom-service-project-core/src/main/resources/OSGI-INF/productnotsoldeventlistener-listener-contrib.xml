@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<component name="tcas.onboarding.listeners.listener.productnotsoldeventlistener">
+
+  <require>org.nuxeo.ecm.core.event.EventServiceComponent</require>
+ 
+  <extension target="org.nuxeo.ecm.core.event.EventServiceComponent" point="listener">
+    <listener name="productnotsoldeventlistener"
+      class="tcas.onboarding.listeners.ProductNotSoldEventLIstener">
+        <event>productNotSoldAnymore</event>
+    </listener>
+  </extension>
+<!--   
+  <extension-point name="destinationFolder">
+    <object class = "tcas.onboarding.listeners.DestinationFolderDescriptor"/>
+  </extension-point>
+
+ 
+  <extension
+    target="tcas.onboarding.listeners.listener.productnotsoldeventlistener"
+    point="destinationFolder">
+    
+    <documentation>
+       extension to define the hidden folder destination.
+    </documentation>
+     <HiddenFolder id="group1">
+        <parentPath>/default-domain/workspaces </parentPath>
+        <dirName>HiddenProducts</dirName>
+     </HiddenFolder>
+      
+  </extension>
+   -->
+</component>

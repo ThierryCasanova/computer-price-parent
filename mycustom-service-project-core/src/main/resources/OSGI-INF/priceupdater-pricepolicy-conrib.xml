@@ -9,14 +9,14 @@
     <documentation>
        extension to define price policy update.
     </documentation>
-   <policyByCountry>
-     <distributors>
-   		<distributor id="France">5</distributor>
-    	<distributor id="US">3</distributor>
-    	<distributor id="EN">2</distributor>
-     </distributors>
-   </policyByCountry> 
- 
-    
+     <policyByCountry>
+       <distributors>
+     		<distributor id="France">5</distributor>
+      	<distributor id="US">3</distributor>
+      	<distributor id="EN">2</distributor>
+       </distributors>
+     </policyByCountry> 
+   
   </extension>
+  
 </component>

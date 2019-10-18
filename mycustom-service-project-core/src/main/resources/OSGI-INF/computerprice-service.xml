@@ -11,12 +11,12 @@
   	<object class = "tcas.onboarding.PricePolicyDescriptor"/>
   </extension-point>
   
-    <extension
-    target="tcas.onboarding.ComputerPrice"
-    point="pricepolicies">
-    <documentation>
-       extension to define price policy update.
-    </documentation>
-    
-  </extension>
+<!--     <extension
+      target="tcas.onboarding.ComputerPrice"
+      point="pricepolicies">
+      <documentation>
+         extension to define price policy update.
+      </documentation>
+     </extension> -->
+  
 </component>

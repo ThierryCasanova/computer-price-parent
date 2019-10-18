@@ -9,4 +9,5 @@ Bundle-SymbolicName: tcas.onboarding.computer-price-core;singleton=true
 Nuxeo-Component: OSGI-INF/computerprice-service.xml,
  OSGI-INF/priceupdater-pricepolicy-conrib.xml,
  OSGI-INF/priceupdater-operation-contrib.xml,
- OSGI-INF/tcas.onboarding.documentsproduct-adapter-contrib.xml
+ OSGI-INF/tcas.onboarding.documentsproduct-adapter-contrib.xml,
+ OSGI-INF/productnotsoldeventlistener-listener-contrib.xml

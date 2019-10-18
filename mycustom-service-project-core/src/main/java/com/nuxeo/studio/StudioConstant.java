@@ -11,13 +11,13 @@ public class StudioConstant {
 
     public static final String VISUAL_DOC_TYPE = "Visual";
 
-    //public static final String PRODUCT_SCHEMA = "product";
+    public static final String PRODUCT_SCHEMA = "product";
 
     public static final String PRODUCT_SCHEMA_DELIVERY_TIME_PROPERTY = "product:delivery_time";
 
     public static final String PRODUCT_SCHEMA_DISTRIBUTOR_PROPERTY = "product:distributor";
 
-    public static final String PRODUCT_SCHEMA = "product_schema";
+   // public static final String PRODUCT_SCHEMA = "product_schema";
 
     public static final String PRODUCT_SCHEMA_AVAILABLE_IMMEDIATLY_PROPERTY = "product_sch:available_immediatly";
 

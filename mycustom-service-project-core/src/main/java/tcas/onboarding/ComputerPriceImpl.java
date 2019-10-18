@@ -1,6 +1,8 @@
 package tcas.onboarding;
 
-import java.util.HashMap;
+import static tcas.onboarding.ProductEnum.*;
+import static com.nuxeo.studio.StudioConstant.*;
+
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
@@ -71,16 +73,16 @@ public class ComputerPriceImpl extends DefaultComponent implements ComputerPrice
 
 	@Override
 	public double computePrice(DocumentModel input) {
-		if (!PRODUCT_TYPE.equals(input.getType()) && !VISUAL_TYPE.equals(input.getType()) ){
-			throw new NuxeoException("this service works only with " + PRODUCT_TYPE + " document type.");
+		if (!PRODUCT_DOC_TYPE.equals(input.getType()) && !VISUAL_DOC_TYPE.equals(input.getType()) ){
+			throw new NuxeoException("this service works only with " + PRODUCT_DOC_TYPE + " document type.");
 		}
 		
-		String distributorName = (String) input.getPropertyValue(ComputerPrice.PRODUCT_DISTRIBUTOR_NAME_SCH);
+		String distributorName = (String) input.getPropertyValue(PRODUCT_DISTRIBUTOR_NAME_SCH);
 		if (pricePolicies != null || !pricePolicies.isEmpty()) {
 			Double increasePrice = pricePolicies.get(distributorName);
-			Double price = (Double) input.getPropertyValue(PRODUCT_PRICE);
+			Double price = (Double) input.getPropertyValue(PRODUCT_SCHEMA_PRICE_PROPERTY);
 			//add increase to the price
-			input.setPropertyValue(PRODUCT_PRICE, (price == null ? 0d : price) + increasePrice);
+			input.setPropertyValue(PRODUCT_SCHEMA_PRICE_PROPERTY, (price == null ? 0d : price) + increasePrice);
 			
 			CoreSession coreSession = input.getCoreSession();
 			coreSession.saveDocument(input);
@@ -89,7 +91,7 @@ public class ComputerPriceImpl extends DefaultComponent implements ComputerPrice
 			logger.error("no extension point defining pricepolicies has been loaded");
 		}
 		
-		Double price = (Double) input.getPropertyValue(PRODUCT_PRICE);
+		Double price = (Double) input.getPropertyValue(PRODUCT_SCHEMA_PRICE_PROPERTY);
 		return price == null ? 0 : price.doubleValue();
 	}
 }

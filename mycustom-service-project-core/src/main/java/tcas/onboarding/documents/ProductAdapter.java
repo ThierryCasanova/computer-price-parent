@@ -10,6 +10,7 @@ import org.nuxeo.ecm.core.api.DocumentRef;
 import org.nuxeo.ecm.core.api.model.Property;
 
 import static com.nuxeo.studio.StudioConstant.*;
+import static tcas.onboarding.ProductEnum.*;
 
 /**
  *
@@ -66,15 +67,15 @@ public class ProductAdapter {
   }
 
   public void setTitle(String value) {
-    doc.setPropertyValue(titleXpath, value);
+    doc.setPropertyValue(TITLE.getxPath(), value);
   }
 
   public String getDescription() {
-    return (String) doc.getPropertyValue(descriptionXpath);
+    return (String) doc.getPropertyValue(DESCRIPTION.getxPath());
   }
 
   public void setDescription(String value) {
-    doc.setPropertyValue(descriptionXpath, value);
+    doc.setPropertyValue(DESCRIPTION.getxPath(), value);
   }
   
   public void setDistributor(String name, String sellLocation) {
