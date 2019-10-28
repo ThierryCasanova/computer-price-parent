@@ -20,7 +20,7 @@ import org.nuxeo.runtime.test.runner.FeaturesRunner;
 import org.nuxeo.runtime.test.runner.PartialDeploy;
 import org.nuxeo.runtime.test.runner.TargetExtensions;
 import org.nuxeo.runtime.test.runner.TransactionalFeature;
-
+import org.nuxeo.ecm.core.io.marshallers.json.document.DocumentModelJsonReader;
 import com.nuxeo.studio.StudioConstant;
 
 //import com.google.inject.Inject;
@@ -64,6 +64,7 @@ public class TestComputerPrice {
     	//docProduit.setPropertyValue(ComputerPrice.PRODUCT_PRICE, 5d);
     	
     	double resultPrice = computerprice.computePrice(docProduit);
+    	
     	transactionalFeature.nextTransaction();
     	
     	DocumentModel document = session.getDocument(docProduit.getRef());
@@ -75,10 +76,16 @@ public class TestComputerPrice {
     
     @Test
     public void testCreateVisual() {
-    	DocumentModel doc = session.createDocumentModel(VISUAL_DOC_TYPE);
-    	//DocumentModel doc = session.createDocumentModel(PRODUCT_DOC_TYPE);
+    	//DocumentModel doc = session.createDocumentModel(VISUAL_DOC_TYPE);
+    	DocumentModel doc = session.createDocumentModel(PRODUCT_DOC_TYPE);
+    	
+    	
+    	
     	doc = session.createDocument(doc);
     	session.saveDocument(doc);
     	session.save();
+    	transactionalFeature.nextTransaction();
+    	DocumentModel document = session.getDocument(doc.getRef());
+    	assertNotNull(document);
     }
 }

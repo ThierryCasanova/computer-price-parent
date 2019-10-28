@@ -12,7 +12,7 @@ import org.nuxeo.ecm.core.api.DocumentModel;
 
 public class TestUtils {
 
-	public static ProductCollection createProductWithVisuals (CoreSession session, CollectionManager collectionManager) {
+	public static ProductCollectionWrapper createProductWithVisuals (CoreSession session, CollectionManager collectionManager) {
 		
 		DocumentModel product = createProduct(session);
 		
@@ -25,7 +25,7 @@ public class TestUtils {
 		
 		collectionManager.addToCollection(product, visuals, session);
 		
-		return new ProductCollection(product, visuals);
+		return new ProductCollectionWrapper(product, visuals);
 		
 	}
 	
@@ -56,12 +56,12 @@ public class TestUtils {
 		return doc;
 	}
 	
-	public static class ProductCollection {
+	public static class ProductCollectionWrapper {
 		
 		private final DocumentModel product;
 		private final List<DocumentModel> visuals;
 		
-		private ProductCollection( DocumentModel product, List<DocumentModel> visuals) {
+		private ProductCollectionWrapper( DocumentModel product, List<DocumentModel> visuals) {
 			this.product = product;
 			this.visuals = visuals;
 		}

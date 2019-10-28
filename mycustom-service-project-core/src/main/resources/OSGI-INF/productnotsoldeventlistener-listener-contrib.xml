@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <component name="tcas.onboarding.listeners.listener.productnotsoldeventlistener">
 
-  <require>org.nuxeo.ecm.core.event.EventServiceComponent</require>
+  <!-- <require>org.nuxeo.ecm.core.event.EventServiceComponent</require> -->
+  <documentation>
+    Listener for products wich are not sold anymore. Move their Visuals to the Hidden folder
+  </documentation>
  
   <extension target="org.nuxeo.ecm.core.event.EventServiceComponent" point="listener">
     <listener name="productnotsoldeventlistener"
-      class="tcas.onboarding.listeners.ProductNotSoldEventLIstener">
+              class="tcas.onboarding.listeners.ProductNotSoldEventLIstener">
         <event>productNotSoldAnymore</event>
     </listener>
   </extension>

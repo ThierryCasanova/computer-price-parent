@@ -87,7 +87,7 @@ public class ProductAdapter {
   
   public String getDistributorName() {
 	  Property distributor = doc.getProperty(PRODUCT_SCHEMA_DISTRIBUTOR_PROPERTY);
-	  return (distributor!= null ? distributor.getValue(String.class, "nam") : null);
+	  return (distributor!= null ? distributor.getValue(String.class, "name") : null);
   }
   
   public String getSellLocation() {

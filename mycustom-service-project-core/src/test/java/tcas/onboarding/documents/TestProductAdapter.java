@@ -17,11 +17,13 @@ import org.nuxeo.runtime.test.runner.TargetExtensions;
 import com.nuxeo.studio.StudioConstant;
 
 import tcas.onboarding.documents.ProductAdapter;
+import tcas.onboarding.features.OnBoardingFeatures;
 
 @RunWith(FeaturesRunner.class)
-@Features(CoreFeature.class)
-@Deploy({"tcas.onboarding.computer-price-core"})
-@PartialDeploy(bundle = StudioConstant.BUNDLE_NAME, extensions = {TargetExtensions.Automation.class})
+//@Features(CoreFeature.class)
+//@Deploy({"tcas.onboarding.computer-price-core"})
+//@PartialDeploy(bundle = StudioConstant.BUNDLE_NAME, extensions =  {TargetExtensions.Automation.class})
+@Features(OnBoardingFeatures.class)
 public class TestProductAdapter {
   @Inject
   CoreSession session;

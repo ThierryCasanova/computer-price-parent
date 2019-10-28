@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import org.nuxeo.ecm.collections.core.adapter.Collection;
+import org.nuxeo.ecm.collections.core.adapter.CollectionAdapterFactory;
 import org.nuxeo.ecm.core.api.CoreSession;
 import org.nuxeo.ecm.core.api.DocumentModel;
 import org.nuxeo.ecm.core.api.DocumentRef;
@@ -35,8 +36,9 @@ public class ProductNotSoldEventLIstener implements EventListener {
         if (!(ctx instanceof DocumentEventContext)) {
           return;
         }
-
+        
         DocumentEventContext docCtx = (DocumentEventContext) ctx;
+       
         DocumentModel doc = docCtx.getSourceDocument();
         
         // Add some logic starting from here.
@@ -50,22 +52,25 @@ public class ProductNotSoldEventLIstener implements EventListener {
 
 	protected void process(EventContext ctx, DocumentModel product) {
 		LOGGER.debug("process document : {} " , product);
-		CoreSession session = product.getCoreSession();
+		//CoreSession session = product.getCoreSession();
+		CoreSession session = ctx.getCoreSession();
 		
 		//TODO retrieve HiddenFolder path
-		//List<Descriptor> descriptors =  getDescriptors("destinationFolder");
-		//LOGGER.info("descripteurs = {} ",descriptors);
-		//coreSession.getOrCreateDocument(docModel)
-		
+		Object destinationFolder = ctx.getProperty("destination");
+				
 		//Retrieve all Product's Visuals to move them
 		Collection collectionAdapter = product.getAdapter(Collection.class);
 		List<String> visualIds = collectionAdapter.getCollectedDocumentIds();
 		
 		if (CollectionUtils.isNotEmpty(visualIds)) {
-			LOGGER.debug("moving visuals {} to hiden folder {}", visualIds, "todefine");
+			LOGGER.warn("moving visuals {} to hiden folder {}", visualIds, "todefine");
 			List<DocumentRef> visualRefs = visualIds.stream().map(IdRef::new).collect(Collectors.toList());
 			
-			//TODO session.move(visualRefs, dst);
+			session.move(visualRefs, ((DocumentModel) destinationFolder).getRef() ) ;
+			
+			
+		} else {
+			LOGGER.warn("no visuals to move for product {}", product);
 		}
 		
 		

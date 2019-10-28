@@ -4,6 +4,7 @@ import static tcas.onboarding.ProductEnum.*;
 import static com.nuxeo.studio.StudioConstant.*;
 
 import java.util.Map;
+import java.util.Objects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -73,6 +74,8 @@ public class ComputerPriceImpl extends DefaultComponent implements ComputerPrice
 
 	@Override
 	public double computePrice(DocumentModel input) {
+		
+		Objects.requireNonNull(input, "the Product document in ENTRY is null");
 		if (!PRODUCT_DOC_TYPE.equals(input.getType()) && !VISUAL_DOC_TYPE.equals(input.getType()) ){
 			throw new NuxeoException("this service works only with " + PRODUCT_DOC_TYPE + " document type.");
 		}

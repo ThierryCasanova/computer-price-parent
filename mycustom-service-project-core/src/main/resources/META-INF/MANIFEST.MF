@@ -5,6 +5,7 @@ Bundle-Vendor: tcas.onboarding
 Bundle-Version: 1.0.0
 Bundle-Name: computer-price-core
 Bundle-ManifestVersion: 2
+Nuxeo-WebModule: tcas.onboarding.webengine.ProductApp;name=myProductApplication
 Bundle-SymbolicName: tcas.onboarding.computer-price-core;singleton=true
 Nuxeo-Component: OSGI-INF/computerprice-service.xml,
  OSGI-INF/priceupdater-pricepolicy-conrib.xml,
