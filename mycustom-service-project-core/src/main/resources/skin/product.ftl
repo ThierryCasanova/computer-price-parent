@@ -9,7 +9,6 @@
   		<#else>
   			No price available
   		</#if>	
-    This is the <i>index1</i> skin.
   </@block>
   <@block name="footer">
     The footer here ...
